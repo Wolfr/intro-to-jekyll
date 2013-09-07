@@ -1,0 +1,14 @@
+<form>
+  {% if page.state == "error" %}
+    <blink style="color: red;">My error message</blink>
+  {% endif %}
+  {% if page.state == "success" %}
+    <blink style="color: green;">My success message</blink>
+  {% endif %}
+
+  <h3>Huge and complicated form here with many states</h3>
+  <textarea name="Name" rows="8" cols="40"></textarea>
+  <br>
+  <input type="submit" value="Send my message">
+</form>
+

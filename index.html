@@ -1,0 +1,733 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+
+	<title>Jekyll camp - Intro to Jekyll</title>
+
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+	<link rel="stylesheet" href="css/reveal.min.css">
+	<link rel="stylesheet" href="css/theme/night.css" id="theme">
+
+	<!-- For syntax highlighting -->
+	<link rel="stylesheet" href="lib/css/zenburn.css">
+
+	<!-- If the query includes 'print-pdf', use the PDF print sheet -->
+	<script>
+		document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+	</script>
+
+	<!--[if lt IE 9]>
+	<script src="lib/js/html5shiv.js"></script>
+	<![endif]-->
+</head>
+
+<body>
+
+	<div class="reveal">
+
+		<!-- Any section element inside of this container is displayed as a slide -->
+		<div class="slides">
+			<section>
+				<h1>Intro to Jekyll</h1>
+        <p>A tool that has a huge impact on how I work</p>
+				<p>
+					<small>By <a href="http://wolfslittlestore.be">Johan Ronsse</a> / <a href="http://twitter.com/wolfr_">@wolfr_</a></small>
+				</p>
+			</section>
+
+			<section>
+				<h2>What is Jekyll?</h2>
+        <blockquote>“Transform your plain text into static websites and blogs.”</blockquote>
+			</section>
+      
+			<section>
+				<h2>I use Jekyll for</h2>
+        <p>HTML prototypes of applications</p>
+        <img src="images/html-prototype.png">
+			</section>
+
+			<section>
+				<h2>I use Jekyll for</h2>
+        <p>My new <a href="http://wolfslittlestore.be">company</a> website</p>
+        <img src="images/wls-v5.png">
+			</section>
+      
+			<section>
+				<h2>I use Jekyll for</h2>
+        <p>The <a href="http://getclank.com">Clank</a> website</p>
+        <img src="images/clank.png">
+			</section>
+      
+			<section>
+				<h2>I use Jekyll for</h2>
+        <p>Small websites for clients</p>
+        <img src="images/small-websites.png">
+			</section>
+      
+			<section>
+				<h2>I don't use Jekyll for</h2>
+        <p>CMS-heavy &amp; database driven sites</p>
+        <img src="images/corelio.png">
+			</section>
+
+			<section>
+				<h2>Getting to know the terminal: awesome screencast</h2>
+				<p>
+          <img src="images/meet-command-line.png" height="300" alt="Meet Command Line">
+        </p>
+        <p>
+					<a href="https://peepcode.com/products/meet-the-command-line">Meet the command line</a>
+        </p>
+      </section>
+      
+			<section>
+				<h2>Installing Jekyll</h2>
+				<p>
+					Installing Jekyll is "straightforward"
+        </p>
+        
+				<pre><code data-trim contenteditable>
+~ $ gem install jekyll
+				</code></pre>
+
+				</p>
+
+			</section>
+      
+      
+			<section>
+				<h2>Windows users</h2>
+				<p>
+          <img src="images/jekyll-windows.png" width="700" alt="">
+        </p>
+        <p>
+					<a href="http://bryanwweber.com/2013/07/installing-jekyll-on-windows/">Installing Jekyll on Windows</a>
+        </p>
+      </section>
+
+			<section>
+				<h2>Heads up: Rubygems</h2>
+				<p>
+					For the <code>gem</code> command to work you need to the <a href="http://rubygems.org/">RubyGems</a> site and follow the instructions.
+        </p>
+				<pre><code data-trim contenteditable>
+~ $ gem update --system
+~ $ # you might have to use sudo
+				</code></pre>
+          
+			</section>
+      
+			<section>
+				<h2>Heads up (2): RVM</h2>
+				<p>
+					For Ruby to work nicely on your system it might make sense to install <a href="https://rvm.io/">rvm</a> so you can have a more recent version of ruby than 1.8.7 that ships with Mac OS
+        </p>
+			</section>
+
+      
+			<section>
+				<h2>Heads up (3): Xcode</h2>
+				<p>
+					You might want to install the Xcode developer tools (you can get Xcode from the Mac app store)
+        </p>
+			</section>
+
+      
+			<section>
+				<h2>Heads up (4): Brew</h2>
+				<p>
+					People tell me it's better to use <code><a href="http://brew.sh/">brew</a></code> than force install everything with <code>sudo</code>
+        </p>
+			</section>
+
+
+			<section>
+				<h2>Generating a new Jekyll site</h2>
+
+				<pre><code data-trim contenteditable>
+~ $ cd ~/Sites/
+~ $ jekyll new my-awesome-site
+~ $ cd my-awesome-site
+				</code></pre>
+
+				</p>
+
+			</section>
+
+
+			<section>
+				<h2>Watch the site</h2>
+				<p>
+					The serve command auto updates the generated site when you make changes.
+        </p>
+				<pre><code data-trim contenteditable>
+~ $ jekyll serve -w 
+# => Now browse to http://localhost:4000
+
+				</code></pre>
+
+				</p>
+
+			</section>
+
+			<section>
+				<h2>What you'll see</h2>
+        <img src="images/jekyll-new.png">
+			</section>
+
+			<section>
+				<h2>Let's examine the files</h2>
+			</section>
+      
+			<section>
+				<h2>About the file structure</h2>
+        <ul>
+          <li class="fragment"><code>_site/</code>: this is the folder for your generated site</li>
+          <li class="fragment"><code>_layouts/</code>: this is the folder containing your layouts</li>
+          <li class="fragment"><code>_includes/</code>: this is the folder for partials (think HTML includes)</li>
+          <li class="fragment"><code>_config.yml</code>: this is the config file</li>
+          <li class="fragment"><code>index.html</code>: base page</li>
+          <li class="fragment"><code>css/</code>: CSS folder</li>
+        </ul>
+			</section>
+
+			<section>
+				<h2>Layouts and includes</h2>
+				<p>
+					The first concept you need to understand is layouts (demo)
+				</p>
+			</section>
+
+			<section>
+				<h2>A Layout</h2>
+				<p>
+          A layout is basically a template in which you can inject content.
+				</p>
+        
+				<pre><code data-trim contenteditable>
+---
+layout: my-sample-layout
+---
+
+This is the content.
+
+				</code></pre>
+
+			</section>
+      
+			<section>
+				<h2>my-sample-layout.html</h2>
+				<pre><code data-trim contenteditable>
+
+{% include head.html %}
+{% include header.html %}
+
+{{ content }}
+
+{% include footer.html %}
+
+				</code></pre>
+
+			</section>
+
+
+			<section>
+				<h2>Includes</h2>
+
+        <p>An include refers to a file in the <code>_includes</code> folder:</p>
+				<pre><code data-trim contenteditable>
+
+{% include head.html %}
+
+				</code></pre>
+        <p>head.html might for instance contain the <code>&lt;head&gt;</code> section of a site.
+			</section>
+      
+      
+			<section>
+				<h2>YAML front matter and Liquid</h2>
+
+        <p>Every content page can be prepended with YAML front matter. Within the YAML front matter you can add some metadata to a page.</p>
+				<pre><code data-trim contenteditable>
+---
+layout: my-sample-layout
+my-custom-statement: my-value
+---
+
+This is the content.
+
+				</code></pre>
+        
+			</section>
+
+			<section>
+				<h2>YAML front matter and Liquid</h2>
+
+        <p>These values can be used in the content:</p>
+				<pre><code data-trim contenteditable>
+---
+layout: my-sample-layout
+my-custom-statement: my-value
+---
+
+This is the content.
+
+{{ page.my-custom-statement }}
+
+				</code></pre>
+        
+			</section>
+      
+			<section>
+				<h2>YAML front matter and Liquid</h2>
+
+        <p>Or, more interestingly, in an "if" clause:</p>
+				<pre><code data-trim contenteditable>
+---
+layout: my-sample-layout
+my-custom-statement: my-value
+---
+
+This is the content.
+
+{% if page.my-custom-statement == "my-value" %}
+Render this part of the HTML
+{% endif %}
+
+				</code></pre>
+        
+			</section>
+      
+			<section>
+				<h2>Why is this useful?</h2>
+
+        <p>For example, show all the states of a form: erorr, success, normal</p>
+				<pre><code data-trim contenteditable>
+---
+layout: my-sample-layout
+error: true
+---
+
+This is the content.
+
+{% if page.error }
+Render this part of the HTML
+{% endif %}
+
+{% if page.success }
+Render this part of the HTML
+{% endif %}
+
+				</code></pre>
+        
+			</section>
+      
+			<section>
+				<h2>Front matter in practice</h2>
+
+        <p>Task: show all the states of a form: erorr, success, normal</p>
+
+        <ul>
+          <li class="fragment">Make form.html, form-error.html, form-success.html files</li>
+          <li class="fragment">Make them use the same layout</li>
+          <li class="fragment">Make an include: my-form.html</li>
+          <li class="fragment">Require the include in all html files</li>
+          <li class="fragment">Within the include, build up your IF/ELSE logic</li>
+        </ul>
+
+        <p>(demo)</p>
+        
+			</section>
+      
+			<section>
+				<h2>For and cycle tag</h2>
+
+        <p>The for tag creates a for loop. The cycle tag allows you to cycle through a known data set.</p>
+				<pre><code data-trim contenteditable>
+---
+layout: my-sample-layout
+---
+
+{% for num in (1...3) %}
+{% cycle 'a', 'b', 'c' %}
+{% endfor %}
+
+				</code></pre>
+        
+			</section>
+      
+			<section>
+				<h2>Cycle tag</h2>
+        <p>Why is this useful? Anything with a lot of iteration. For example, using real data in prototype:</p>
+        <img src="images/real-data.png">
+			</section>
+      
+			<section>
+				<h2>Blogging with Jekyll</h2>
+        <p>Jekyll contains a pre-built blogging mechanism.</p>
+			</section>
+
+			<section>
+				<h2>Blogging with Jekyll</h2>
+        <p>The _posts folder contains markdown files:</p>
+        <p><code>2013-08-29-welcome-to-jekyll.markdown</code></p>
+			</section>
+
+			<section>
+				<h2>Blogging with Jekyll</h2>
+        <img src="images/post.png">
+			</section>
+      
+			<section>
+				<h2>Blogging with Jekyll</h2>
+        <p>The posts are:</p>
+        <ul>
+          <li>Written in markdown</li>
+          <li>You can use Textile</li>
+          <li>You can set your markdown parser if you want (Maruku, kramdown,...)</li>
+        </ul>
+			</section>
+      
+			<section>
+				<h2>Adding an RSS feed</h2>
+        <p>To add an atom feed to your site just add an atom.xml file with the correct values.</p>
+        <img src="images/atom.png" width="784" height="559" alt="Atom">
+			</section>
+      
+			<section>
+				<h2>Sample sites</h2>
+        <p>There are sample sites on Github. A lot of people made their Jekyll sites open source so other people can learn.</p>
+        <img src="images/10to1.png">
+			</section>
+
+			<section>
+				<h2>Cactus</h2>
+        <p>Cactus is a responsive Jekyll theme that contains a blog.</p>
+        <img src="images/cactus.png">
+			</section>
+
+      
+      <section>
+        <h2>Footnotes with Kramdown</h2>
+        <p>This is for creating nice footnotes like on daringfireball.net and marco.org:</p>
+        <img src="images/footnotes.png" width="765" height="428" alt="Footnotes">
+        
+      </section>
+
+      <section>
+        <h2>Footnotes with Kramdown</h2>
+        <p>First, specify your markdown engine in your config file:</p>
+      
+        <pre><code data-trim contenteditable>
+markdown: kramdown
+        </code></pre>
+        
+      </section>
+      
+      <section>
+        <h2>Intermezzo: the Jekyll site config object</h2>
+        <p>The _config.yml contains a global "settings" object that specifies things about your site</p>
+        <ul>
+          <li>Where it should be generated</li>
+          <li>How permalinks should look</li>
+          <li>Which markdown parser to use</li>
+          <li>After how many pages the blog should paginate</li>
+          <li>Etc.</li>
+        </ul>
+      </section>
+      
+      <section>
+        <h2>Footnotes with Kramdown</h2>
+        <p>Next, juse use markdown like this in a blog post:</p>
+      
+        <pre><code data-trim contenteditable>
+This is a text with a
+footnote[^1].
+
+[^1]: And here is the definition.
+        </code></pre>
+        
+        <p><a href="http://kramdown.rubyforge.org/quickref.html#footnotes">Documentation on kramdown website</a>.</p>
+        
+      </section>
+      
+      <section>
+        <h2>Markdown/kramdown</h2>
+        <p>You could even make tables if you want to:</p>
+        <img src="images/table.png" width="666" height="279" alt="Table">
+        
+      </section>
+
+      <section>
+        <h2>Pagination</h2>
+        <p>Regular blog code: you would use site.posts</p>
+				<pre><code data-trim contenteditable>
+          
+{% for post in site.posts %}
+<article>
+  <header>
+    <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+    <p>Posted on {{ post.date | date: "%B %d, %Y" }} by [author name]</p>
+  </header>
+  <div class="entry-content">
+    {{ post.content }}
+  </div>
+</article>
+{% endfor %}
+
+        </code></pre>
+      </section>
+
+      
+      <section>
+        <h2>Pagination</h2>
+        <p>If you need pagination blog code: you would use paginator.posts</p>
+				<pre><code data-trim contenteditable>
+          
+  {% for post in paginator.posts %}
+  <article>
+    <header>
+      <h1><a href="{{ post.url }}">{{ post.title }}</a></h1>
+      <p>Posted on {{ post.date | date: "%B %d, %Y" }} by [author name]</p>
+    </header>
+    <div class="entry-content">
+      {{ post.content }}
+    </div>
+  </article>
+  {% endfor %}
+          
+        </code></pre>
+      </section>
+      
+      <section>
+        <h2>Pagination</h2>
+        <p>Also, add some pagination code liike this:</p>
+      
+        <pre><code data-trim contenteditable>
+<div class="pagination">
+  {% if paginator.previous_page %}
+    {% if paginator.previous_page == 1 %}
+        <a href="/blog/" class="previous">Previous</a>
+      {% else %}
+        <a href="/blog/page{{ paginator.previous_page }}" class="previous">Previous</a>
+      {% endif %}
+  {% else %}
+    <span class="previous">Previous</span>
+  {% endif %}
+
+  <span class="page_number ">Page: {{ paginator.page }} of {{ paginator.total_pages }}</span>
+
+  {% if paginator.next_page %}
+    <a href="/blog/page{{ paginator.next_page }}" class="next">Next</a>
+  {% else %}
+    <span class="next ">Next</span>
+  {% endif %}
+</div>
+        </code></pre>
+
+      </section>
+      
+      <section>
+        <h2>Pagination config</h2>
+        <p>Set this in the _config.yml and adjust if necessary:</p>
+      
+        <pre><code data-trim contenteditable>
+      
+paginate: 7
+paginate_path: "blog/page:num"
+
+        </code></pre>
+
+      </section>
+
+      <section>
+        <h2>How to have nice permalinks (without .html)</h2>
+        <p>Make a folder structure yourself:</p>
+				<pre><code data-trim contenteditable>
+          portfolio.html
+          becomes portfolio/index.html
+        </code></pre>
+      </section>
+
+
+      <section>
+        <h2>How to have nice permalinks (without .html)</h2>
+        <p>Alternative: use permalinks in YAML front matter, see Jekyll site</p>
+        
+        <img src="images/permalinks.png" width="808" height="579" alt="Permalinks">
+        
+      </section>
+      
+
+      <section>
+        <h2>Providing test websites for clients that can live in a subdirectory</h2>
+        <ul>
+          <li>Problem: I want to provide static test sites to clients</li>
+          <li>Solution: set a {{ baseurl }} in _config.yml</li>
+        </ul>
+
+				<pre><code data-trim contenteditable>
+          baseurl: my-test-site
+        </code></pre>
+
+        <p>For each file reference instead of:</p>
+
+				<pre><code data-trim contenteditable>
+          &lt;link rel=&quot;stylesheet&quot; href=&quot;css/screen.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+        </code></pre>
+        <p>Use {{ baseurl }} instead:</p>
+
+				<pre><code data-trim contenteditable>
+        &lt;link rel=&quot;stylesheet&quot; href=&quot;{% unless site.baseurl == &quot;/&quot; %}{{ site.baseurl }}{% endunless %}/css/screen.css&quot; type=&quot;text/css&quot; media=&quot;screen&quot;&gt;
+      </code></pre>
+          
+        <p>Looking for a cleaner solution!</p>
+
+      </section>
+
+      <section>
+        <h2>Jekyll plugins</h2>
+        <p>My experience so far</p>
+      </section>
+      
+      <section>
+        <h2>A Jekyll plugin</h2>
+        <p>Is a Ruby (.rb) file in the _plugins folder)</p>
+      </section>
+      
+      <section>
+        <h2>Example plugin: Cycle random</h2>
+				<pre><code data-trim contenteditable>
+module Jekyll
+
+  class Random < Liquid::Tag
+    def initialize(tag_name, arr, tokens)
+       super
+       @arr = arr.split(",")
+    end
+
+    def render(context)
+      @arr[rand(@arr.size)] 
+    end
+  end
+
+end
+
+Liquid::Template.register_tag('cyclerand', Jekyll::Random)
+				</code></pre>
+
+      </section>
+
+
+      <section>
+        <h2>Sitemaps with Jekyll</h2>
+        <p>Just a sitemap.xml file that lists posts and pages (see <a href="http://davidensinger.com/2013/03/generating-a-sitemap-in-jekyll-without-a-plugin/">this link</a>)</p>
+				<pre><code data-trim contenteditable>
+&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;urlset xmlns:xsi=&quot;http://www.w3.org/2001/XMLSchema-instance&quot; xsi:schemaLocation=&quot;http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd&quot; xmlns=&quot;http://www.sitemaps.org/schemas/sitemap/0.9&quot;&gt;
+
+  {% for post in site.posts %}
+  &lt;url&gt;
+    &lt;loc&gt;{{ site.baseurl }}{{ post.url }}&lt;/loc&gt;
+    {% if post.lastmod == null %}
+    &lt;lastmod&gt;{{ post.date | date_to_xmlschema }}&lt;/lastmod&gt;
+    {% else %}
+    [...]
+        </code></pre>
+        
+      </section>
+      
+      <section>
+        <h2>Adding open graph metadata to your site</h2>
+
+				<pre><code data-trim contenteditable>
+
+{% capture header %}
+
+<meta property='og:locale' content="en_US"/>
+
+{% if page.title %}
+  <meta property="og:type" content="article" />
+  <meta property="og:title" content="{{ page.title }} - Wolf's Little Store" />
+{% else %}
+  <meta property="og:type" content="website" />
+{% endif %}
+
+{% if site.title %}
+  <meta property="og:site_name" content="{{ site.title }}" />
+{% endif %}
+
+{% if page.url %}
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}" />
+{% endif %}
+
+{% if page.date %}
+  <meta property="article:published_time" content="{{page.date | date_to_xmlschema}}" />
+{% endif %}
+
+{% if site.owner_link %}
+  <meta property="article:author" content="{{ site.owner_link }}" />
+{% endif %}
+
+{% endcapture %}{{ header | strip_newlines }}
+        </code></pre>
+
+      </section>
+      
+      <section>
+        <h2>Why you should add open graph metadata to your site</h2>
+
+        <p>Get avatars and extra meta data in search results and social media posts</p>
+        <img src="images/search-results.png" width="672" height="511" alt="">
+        
+        <p>SEO benefit? Dunno, but it doesn't take long to add.</p>
+        
+      </section>
+
+			<section>
+				<h1>Thanks!</h1>
+				<p>
+					<small>By <a href="http://wolfslittlestore.be">Johan Ronsse</a> / <a href="http://twitter.com/wolfr_">@wolfr_</a></small>
+				</p>
+			</section>
+
+		</div>
+
+	</div>
+
+	<script src="lib/js/head.min.js"></script>
+	<script src="js/reveal.min.js"></script>
+
+	<script>
+
+		// Full list of configuration options available here:
+		// https://github.com/hakimel/reveal.js#configuration
+		Reveal.initialize({
+			controls: true,
+			progress: true,
+			history: true,
+			center: true,
+
+			theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+			transition: Reveal.getQueryHash().transition || 'fade', // default/cube/page/concave/zoom/linear/fade/none
+
+			// Optional libraries used to extend on reveal.js
+			dependencies: [
+				{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+				{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+				{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+				{ src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+				{ src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+			]
+		});
+
+	</script>
+
+</body>
+</html>
